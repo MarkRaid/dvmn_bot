@@ -3,6 +3,7 @@ import pprint
 import telegram
 import time
 import os
+import logging
 
 bot = telegram.Bot(token=os.getenv("TELEGRAM_TOKEN"))
 
@@ -11,6 +12,10 @@ USER_REVIEWS_URL = "https://dvmn.org/api/long_polling/"
 headers = {
   "Authorization": f"Token {os.getenv('DVMN_API_TOKEN')}"
 }
+
+
+logging.basicConfig(level=logging.INFO)
+logging.info('Бот запущен')
 
 
 def get_new_reviews(headers={}, params={}):
